@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		87549C451B34067200CD1868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C441B34067200CD1868 /* AppDelegate.swift */; };
-		87549C471B34067200CD1868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C461B34067200CD1868 /* ViewController.swift */; };
+		87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C461B34067200CD1868 /* CanvasViewController.swift */; };
 		87549C4A1B34067200CD1868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87549C481B34067200CD1868 /* Main.storyboard */; };
-		87549C4C1B34067200CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C4B1B34067200CD1868 /* Images.xcassets */; };
 		87549C4F1B34067200CD1868 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87549C4D1B34067200CD1868 /* LaunchScreen.xib */; };
 		87549C5B1B34067200CD1868 /* SeasonizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C5A1B34067200CD1868 /* SeasonizerTests.swift */; };
+		87549C651B3412F300CD1868 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C641B3412F300CD1868 /* Accessory.swift */; };
+		87549C671B34154000CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C661B34154000CD1868 /* Images.xcassets */; };
+		87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		87549C3F1B34067200CD1868 /* Seasonizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seasonizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87549C431B34067200CD1868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87549C441B34067200CD1868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		87549C461B34067200CD1868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87549C461B34067200CD1868 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		87549C491B34067200CD1868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		87549C4B1B34067200CD1868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87549C4E1B34067200CD1868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		87549C541B34067200CD1868 /* SeasonizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87549C591B34067200CD1868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87549C5A1B34067200CD1868 /* SeasonizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonizerTests.swift; sourceTree = "<group>"; };
+		87549C641B3412F300CD1868 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
+		87549C661B34154000CD1868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				87549C441B34067200CD1868 /* AppDelegate.swift */,
-				87549C461B34067200CD1868 /* ViewController.swift */,
+				87549C461B34067200CD1868 /* CanvasViewController.swift */,
+				87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */,
+				87549C641B3412F300CD1868 /* Accessory.swift */,
 				87549C481B34067200CD1868 /* Main.storyboard */,
-				87549C4B1B34067200CD1868 /* Images.xcassets */,
+				87549C661B34154000CD1868 /* Images.xcassets */,
 				87549C4D1B34067200CD1868 /* LaunchScreen.xib */,
 				87549C421B34067200CD1868 /* Supporting Files */,
 			);
@@ -161,6 +167,7 @@
 				TargetAttributes = {
 					87549C3E1B34067200CD1868 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = SZEDS83NVF;
 					};
 					87549C531B34067200CD1868 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -192,9 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87549C671B34154000CD1868 /* Images.xcassets in Resources */,
 				87549C4A1B34067200CD1868 /* Main.storyboard in Resources */,
 				87549C4F1B34067200CD1868 /* LaunchScreen.xib in Resources */,
-				87549C4C1B34067200CD1868 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87549C471B34067200CD1868 /* ViewController.swift in Sources */,
+				87549C651B3412F300CD1868 /* Accessory.swift in Sources */,
+				87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */,
+				87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */,
 				87549C451B34067200CD1868 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
