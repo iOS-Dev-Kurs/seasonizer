@@ -15,14 +15,131 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k8R-78-p99">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <accessibility key="accessibilityConfiguration" identifier="photoImageView" label="Photo">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyU-UB-GUR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="top" secondItem="RyU-UB-GUR" secondAttribute="top" id="FS2-gb-K15"/>
+                            <constraint firstAttribute="trailing" secondItem="k8R-78-p99" secondAttribute="trailing" id="Rwg-zZ-K6v"/>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ulu-Ft-bcd"/>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="trailing" secondItem="RyU-UB-GUR" secondAttribute="trailing" id="ZaQ-j3-0xY"/>
+                            <constraint firstAttribute="bottom" secondItem="k8R-78-p99" secondAttribute="bottom" id="Zmp-B4-yky"/>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="leading" secondItem="RyU-UB-GUR" secondAttribute="leading" id="rRt-Xd-iUR"/>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uBN-S9-61B"/>
+                            <constraint firstItem="k8R-78-p99" firstAttribute="bottom" secondItem="RyU-UB-GUR" secondAttribute="bottom" id="wpB-v0-BLp"/>
+                        </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Seasonizer" id="6dS-Kq-rKs"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="Hev-Ft-dkd">
+                            <connections>
+                                <action selector="trashButtonPressed:" destination="BYZ-38-t0r" id="TpZ-ea-T2s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="6Xm-qa-Kvb"/>
+                        <barButtonItem systemItem="camera" id="YN3-ft-wx7">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="ykz-vZ-odp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="CXk-xD-RRw"/>
+                        <barButtonItem title="Accessories..." id="1hw-34-5gA">
+                            <connections>
+                                <segue destination="n9t-f2-Zf1" kind="presentation" identifier="showAccessories" id="t0k-Vg-Zbq"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Seasonizer" id="6dS-Kq-rKs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vjY-eJ-cRe">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="b8g-iT-4zj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="accessoryOverlayView" destination="RyU-UB-GUR" id="dgL-bC-N0b"/>
+                        <outlet property="photoImageView" destination="k8R-78-p99" id="ouC-Qh-g6v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010" y="136"/>
+        </scene>
+        <!--Accessories-->
+        <scene sceneID="8Tx-yE-6Rc">
+            <objects>
+                <tableViewController id="FXc-sf-7lF" customClass="AccessoryListViewController" customModule="Seasonizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cMS-0e-Z2H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessoryCell" textLabel="Pvv-Bb-xfT" style="IBUITableViewCellStyleDefault" id="F5p-Iy-BMo">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F5p-Iy-BMo" id="umC-f7-OTI">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pvv-Bb-xfT">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="pJN-Lz-pkk" kind="unwind" identifier="selectedAccessory" unwindAction="unwindToCanvas:" id="49b-LR-8zl"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FXc-sf-7lF" id="BKJ-cv-Ch2"/>
+                            <outlet property="delegate" destination="FXc-sf-7lF" id="jS0-Jz-dCK"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Accessories" id="1RE-Et-N2J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="N6B-7q-gxP">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="FXc-sf-7lF" id="EKv-0K-xFE"/>
+                                <segue destination="pJN-Lz-pkk" kind="unwind" identifier="cancelSelectAccessory" unwindAction="unwindToCanvas:" id="VE9-CG-vyW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhQ-6N-pxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pJN-Lz-pkk" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2510" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zeV-MY-IUg">
+            <objects>
+                <navigationController id="n9t-f2-Zf1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v8w-9l-QjN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FXc-sf-7lF" kind="relationship" relationship="rootViewController" id="ep1-3x-6ZS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oa-0I-K1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WSz-3O-Obv">
