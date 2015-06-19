@@ -15,6 +15,7 @@
 		87549C651B3412F300CD1868 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C641B3412F300CD1868 /* Accessory.swift */; };
 		87549C671B34154000CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C661B34154000CD1868 /* Images.xcassets */; };
 		87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */; };
+		87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C6C1B3443B100CD1868 /* AccessoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		87549C641B3412F300CD1868 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		87549C661B34154000CD1868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryListViewController.swift; sourceTree = "<group>"; };
+		87549C6C1B3443B100CD1868 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				87549C461B34067200CD1868 /* CanvasViewController.swift */,
 				87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */,
 				87549C641B3412F300CD1868 /* Accessory.swift */,
+				87549C6C1B3443B100CD1868 /* AccessoryView.swift */,
 				87549C481B34067200CD1868 /* Main.storyboard */,
 				87549C661B34154000CD1868 /* Images.xcassets */,
 				87549C4D1B34067200CD1868 /* LaunchScreen.xib */,
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87549C651B3412F300CD1868 /* Accessory.swift in Sources */,
+				87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */,
 				87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */,
 				87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */,
 				87549C451B34067200CD1868 /* AppDelegate.swift in Sources */,
@@ -422,6 +426,7 @@
 				87549C601B34067200CD1868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87549C611B34067200CD1868 /* Build configuration list for PBXNativeTarget "SeasonizerTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +435,7 @@
 				87549C631B34067200CD1868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

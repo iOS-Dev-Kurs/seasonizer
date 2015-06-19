@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CanvasViewController.swift
 //  Seasonizer
 //
 //  Created by Nils Fischer on 19.06.15.
@@ -13,7 +13,17 @@ class CanvasViewController: UIViewController, UIImagePickerControllerDelegate, U
     var allAccessories: [Accessory]!
 
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var accessoryView: UIView!
+    @IBOutlet weak var accessoryOverlayView: UIView!
+    
+    var accessoryViews: [AccessoryView] {
+        var accessoryViews = [AccessoryView]()
+        for view in accessoryOverlayView.subviews {
+            if let accessoryView = view as? AccessoryView {
+                accessoryViews.append(accessoryView)
+            }
+        }
+        return accessoryViews
+    }
     
     var renderedPicture: UIImage {
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
@@ -23,6 +33,28 @@ class CanvasViewController: UIViewController, UIImagePickerControllerDelegate, U
         return renderedPicture
     }
 
+    override func encodeRestorableStateWithCoder(coder: NSCoder) {
+        if let photo = photoImageView.image {
+            let imageData = UIImagePNGRepresentation(photo)
+            coder.encodeObject(imageData, forKey: "photo")
+        }
+        coder.encodeObject(NSKeyedArchiver.archivedDataWithRootObject(accessoryViews), forKey: "accessoryViews")
+        super.encodeRestorableStateWithCoder(coder)
+    }
+    
+    override func decodeRestorableStateWithCoder(coder: NSCoder) {
+        if let photoData = coder.decodeObjectForKey("photo") as? NSData {
+            photoImageView.image = UIImage(data: photoData)
+        }
+        if let accessoryViewsData = coder.decodeObjectForKey("accessoryViews") as? NSData {
+            let accessoryViews = NSKeyedUnarchiver.unarchiveObjectWithData(accessoryViewsData) as! [AccessoryView]
+            for accessoryView in accessoryViews {
+                self.addAccessoryView(accessoryView)
+            }
+        }
+        super.decodeRestorableStateWithCoder(coder)
+    }
+    
     // MARK: User Interaction
 
     @IBAction func cameraButtonPressed(sender: AnyObject) {
@@ -52,7 +84,7 @@ class CanvasViewController: UIViewController, UIImagePickerControllerDelegate, U
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         alertController.addAction(UIAlertAction(title: "Bild zurücksetzen", style: .Destructive, handler: { action in
             self.photoImageView.image = nil
-            for accessoryView in self.accessoryView.subviews {
+            for accessoryView in self.accessoryViews {
                 accessoryView.removeFromSuperview()
             }
         }))
@@ -79,32 +111,30 @@ class CanvasViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // MARK: Accessories
-    func addAccessory(accessory: Accessory) {
-        let imageView = UIImageView(image: accessory.image)
-        imageView.center = accessoryView.convertPoint(accessoryView.center, fromView: accessoryView.superview)
-        self.accessoryView.addSubview(imageView)
+    func addAccessoryView(accessoryView: AccessoryView) {
+        self.accessoryOverlayView.addSubview(accessoryView)
         
-        imageView.userInteractionEnabled = true
+        accessoryView.userInteractionEnabled = true
         
         // Bewegen
         let panGR = UIPanGestureRecognizer(target:self, action:"pan:")
         panGR.delegate = self
-        imageView.addGestureRecognizer(panGR)
+        accessoryView.addGestureRecognizer(panGR)
         
         // Skalieren
         let pinchGR = UIPinchGestureRecognizer(target:self, action:"pinch:")
         pinchGR.delegate = self
-        imageView.addGestureRecognizer(pinchGR)
+        accessoryView.addGestureRecognizer(pinchGR)
         
         // Drehen
         let rotateGR = UIRotationGestureRecognizer(target:self, action:"rotate:")
         rotateGR.delegate = self
-        imageView.addGestureRecognizer(rotateGR)
+        accessoryView.addGestureRecognizer(rotateGR)
         
         // Löschen
         let tapGR = UILongPressGestureRecognizer(target:self, action:"tap:")
         tapGR.delegate = self
-        imageView.addGestureRecognizer(tapGR)
+        accessoryView.addGestureRecognizer(tapGR)
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -122,7 +152,9 @@ class CanvasViewController: UIViewController, UIImagePickerControllerDelegate, U
         return self.allAccessories
     }
     func accessoryListViewController(accessoryListViewController: AccessoryListViewController, didSelectAccessory accessory: Accessory) {
-        addAccessory(accessory)
+        let accessoryView = AccessoryView(accessory: accessory)
+        accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+        self.addAccessoryView(accessoryView)
         accessoryListViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     func accessoryListViewControllerDidCancel(accessoryListViewController: AccessoryListViewController) {

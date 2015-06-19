@@ -7,7 +7,7 @@
         <!--Seasonizer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CanvasViewController" customModule="Seasonizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="canvasViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CanvasViewController" customModule="Seasonizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -63,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accessoryView" destination="8bC-Xf-vdC" id="5aB-yb-jBk"/>
+                        <outlet property="accessoryOverlayView" destination="RyU-UB-GUR" id="dgL-bC-N0b"/>
                         <outlet property="photoImageView" destination="k8R-78-p99" id="ouC-Qh-g6v"/>
                     </connections>
                 </viewController>
@@ -132,7 +132,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WSz-3O-Obv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="A6u-BR-TcU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="A6u-BR-TcU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="846-Ar-hVL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
