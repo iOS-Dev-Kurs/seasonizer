@@ -1,0 +1,14 @@
+PODS:
+  - Evergreen (0.5.0)
+
+DEPENDENCIES:
+  - Evergreen (from `./Evergreen`)
+
+EXTERNAL SOURCES:
+  Evergreen:
+    :path: "./Evergreen"
+
+SPEC CHECKSUMS:
+  Evergreen: 8ec971c96f85692a06dd564fa4999709200d8c61
+
+COCOAPODS: 0.37.1
