@@ -17,10 +17,18 @@
 		87549C671B34154000CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C661B34154000CD1868 /* Images.xcassets */; };
 		87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */; };
 		87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C6C1B3443B100CD1868 /* AccessoryView.swift */; };
+		87CF63BA1B414E1900147491 /* SeasonizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF63B91B414E1900147491 /* SeasonizerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		87549C551B34067200CD1868 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87549C371B34067200CD1868 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87549C3E1B34067200CD1868;
+			remoteInfo = Seasonizer;
+		};
+		87CF63BC1B414E1900147491 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87549C371B34067200CD1868 /* Project object */;
 			proxyType = 1;
@@ -46,6 +54,9 @@
 		87549C6C1B3443B100CD1868 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		C65FA47E303CC13765FF5885 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D83F5823B97B50573EE65554 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87CF63B71B414E1900147491 /* SeasonizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87CF63B91B414E1900147491 /* SeasonizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonizerUITests.swift; sourceTree = "<group>"; };
+		87CF63BB1B414E1900147491 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		87549C511B34067200CD1868 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87CF63B41B414E1900147491 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,6 +107,7 @@
 			children = (
 				87549C411B34067200CD1868 /* Seasonizer */,
 				87549C571B34067200CD1868 /* SeasonizerTests */,
+				87CF63B81B414E1900147491 /* SeasonizerUITests */,
 				87549C401B34067200CD1868 /* Products */,
 				5155941C40CE9A8A5FDB23C1 /* Pods */,
 				086FE71D275C4CA2423C7957 /* Frameworks */,
@@ -100,6 +119,7 @@
 			children = (
 				87549C3F1B34067200CD1868 /* Seasonizer.app */,
 				87549C541B34067200CD1868 /* SeasonizerTests.xctest */,
+				87CF63B71B414E1900147491 /* SeasonizerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +165,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		87CF63B81B414E1900147491 /* SeasonizerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				87CF63B91B414E1900147491 /* SeasonizerUITests.swift */,
+				87CF63BB1B414E1900147491 /* Info.plist */,
+			);
+			path = SeasonizerUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +215,24 @@
 			productReference = 87549C541B34067200CD1868 /* SeasonizerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		87CF63B61B414E1900147491 /* SeasonizerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87CF63BE1B414E1A00147491 /* Build configuration list for PBXNativeTarget "SeasonizerUITests" */;
+			buildPhases = (
+				87CF63B31B414E1900147491 /* Sources */,
+				87CF63B41B414E1900147491 /* Frameworks */,
+				87CF63B51B414E1900147491 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87CF63BD1B414E1900147491 /* PBXTargetDependency */,
+			);
+			name = SeasonizerUITests;
+			productName = SeasonizerUITests;
+			productReference = 87CF63B71B414E1900147491 /* SeasonizerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,7 +240,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Nils Fischer";
 				TargetAttributes = {
 					87549C3E1B34067200CD1868 = {
@@ -202,6 +249,10 @@
 					};
 					87549C531B34067200CD1868 = {
 						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 87549C3E1B34067200CD1868;
+					};
+					87CF63B61B414E1900147491 = {
+						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 87549C3E1B34067200CD1868;
 					};
 				};
@@ -221,6 +272,7 @@
 			targets = (
 				87549C3E1B34067200CD1868 /* Seasonizer */,
 				87549C531B34067200CD1868 /* SeasonizerTests */,
+				87CF63B61B414E1900147491 /* SeasonizerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,6 +289,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		87549C521B34067200CD1868 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87CF63B51B414E1900147491 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,6 +373,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		87CF63B31B414E1900147491 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87CF63BA1B414E1900147491 /* SeasonizerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -321,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = 87549C3E1B34067200CD1868 /* Seasonizer */;
 			targetProxy = 87549C551B34067200CD1868 /* PBXContainerItemProxy */;
+		};
+		87CF63BD1B414E1900147491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87549C3E1B34067200CD1868 /* Seasonizer */;
+			targetProxy = 87CF63BC1B414E1900147491 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -365,6 +437,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -380,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,6 +508,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -447,6 +521,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -465,6 +540,7 @@
 				);
 				INFOPLIST_FILE = SeasonizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seasonizer.app/Seasonizer";
 			};
@@ -480,8 +556,34 @@
 				);
 				INFOPLIST_FILE = SeasonizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seasonizer.app/Seasonizer";
+			};
+			name = Release;
+		};
+		87CF63BF1B414E1A00147491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = SeasonizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.SeasonizerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Seasonizer;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		87CF63C01B414E1A00147491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SeasonizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.nilsfischer.SeasonizerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Seasonizer;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -514,6 +616,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		87CF63BE1B414E1A00147491 /* Build configuration list for PBXNativeTarget "SeasonizerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87CF63BF1B414E1A00147491 /* Debug */,
+				87CF63C01B414E1A00147491 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

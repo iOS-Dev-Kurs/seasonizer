@@ -42,7 +42,7 @@ class AccessoryListViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let accessory = accessories![indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("accessoryCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("accessoryCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = accessory.title
         cell.imageView?.image = accessory.image
         return cell

@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import Seasonizer
 
 class SeasonizerTests: XCTestCase {
     
@@ -21,16 +22,10 @@ class SeasonizerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testAccessoryImageIsShownInAccessoryView() {
+        let accessory = Accessory(image: UIImage(named: "sunhat")!, title: "Sonnenhut")
+        let accessoryView = AccessoryView(accessory: accessory)
+        XCTAssertTrue(accessoryView.image==accessory.image)
     }
     
 }
