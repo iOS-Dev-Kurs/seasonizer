@@ -18,7 +18,6 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     // MARK: Interface Elements
     
-    // TODO: Setup user interface in storyboard.
     
     /// Eine `UIImageView`, die das Foto anzeigt.
     @IBOutlet weak var photoImageView: UIImageView!
@@ -128,7 +127,6 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
          }
     */
     
-    
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
     
     // TODO: For the "selectedAccessory" segue, obtain the selected accessory and add it to the canvas.
@@ -137,21 +135,21 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
      
      - The `AccessoryListViewController` is the segue's `sourceViewController`:
      
-         guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
-                selectedAccessory = accessoryListViewController.selectedAccessory else {
-            return
-         }
+     guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
+     selectedAccessory = accessoryListViewController.selectedAccessory else {
+     return
+     }
      
      - Create an `AccessoryView` from the `selectedAccessory` and set its initial position:
      
-        let accessoryView = AccessoryView(accessory: selectedAccessory)
-        accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
-
+     let accessoryView = AccessoryView(accessory: selectedAccessory)
+     accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
      - Finally, call the `addAccessoryView(_:)` Method implemented above:
      
-        self.addAccessoryView(accessoryView)
-    */
-
+     self.addAccessoryView(accessoryView)
+     */
+   
+    
 }
 
 
