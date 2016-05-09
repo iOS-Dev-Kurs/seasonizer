@@ -13,8 +13,7 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     // MARK: Model
     
-    var allAccessories: [Accessory]!
-
+    var allAccessories: [Accessory]! = [Accessory(image: UIImage.init(named: "sunhat")!, title: "Sunhat"), Accessory(image: UIImage.init(named: "bikini")!, title: "Bikini"), Accessory(image: UIImage.init(named: "mustache")!, title: "Mustache"), Accessory(image: UIImage.init(named: "sunglasses")!, title: "Sunglasses")]
     
     // MARK: Interface Elements
     
@@ -78,16 +77,16 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func cameraButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            alertController.addAction(UIAlertAction(title: "Kamera", style: .Default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { action in
                 self.presentImagePickerWithSourceType(.Camera)
             }))
         }
         if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            alertController.addAction(UIAlertAction(title: "Foto auswählen", style: .Default, handler: { action in
+            alertController.addAction(UIAlertAction(title: "Select image", style: .Default, handler: { action in
                 self.presentImagePickerWithSourceType(.PhotoLibrary)
             }))
         }
-        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -100,13 +99,13 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func trashButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        alertController.addAction(UIAlertAction(title: "Bild zurücksetzen", style: .Destructive, handler: { action in
+        alertController.addAction(UIAlertAction(title: "Reset image", style: .Destructive, handler: { action in
             self.photoImageView.image = nil
             for accessoryView in self.accessoryViews {
                 accessoryView.removeFromSuperview()
             }
         }))
-        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -120,6 +119,11 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     
     // TODO: Implement `prepareForSegue(_:sender:)` to pass `allAccessories` on to `AccessoryListViewController`.
+    
+    @IBAction override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else { return }
+        accessoryListViewController.accessories = allAccessories
+    }
     /*
      HINT: The `AccessoryListViewController` should be embedded in a `UINavigationController`:
      
@@ -130,6 +134,14 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
+    
+    @IBAction func unwindToCanvas(segue: UIStoryboardSegue) {
+        guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
+            selectedAccessory = accessoryListViewController.selectedAccessory else { return }
+        let accessoryView = AccessoryView(accessory: selectedAccessory)
+        accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+        self.addAccessoryView(accessoryView)
+    }
     
     // TODO: For the "selectedAccessory" segue, obtain the selected accessory and add it to the canvas.
     /*
@@ -238,7 +250,7 @@ extension CanvasViewController {
         if let accessoryView = sender.view {
             self.becomeFirstResponder()
             let menuController = UIMenuController.sharedMenuController()
-            menuController.menuItems = [ UIMenuItem(title: "Entfernen", action: #selector(removeAccessoryButtonPressed(_:))) ]
+            menuController.menuItems = [ UIMenuItem(title: "Remove", action: #selector(removeAccessoryButtonPressed(_:))) ]
             menuController.setTargetRect(accessoryView.frame, inView: accessoryView.superview!)
             menuController.setMenuVisible(true, animated: true)
             self.selectedAccessoryView = accessoryView
