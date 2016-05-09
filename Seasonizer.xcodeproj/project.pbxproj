@@ -15,6 +15,7 @@
 		87549C671B34154000CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C661B34154000CD1868 /* Images.xcassets */; };
 		87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */; };
 		87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C6C1B3443B100CD1868 /* AccessoryView.swift */; };
+		9D24C25C1CE119C6008775F1 /* AccessoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24C25B1CE119C6008775F1 /* AccessoryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		87549C661B34154000CD1868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryListViewController.swift; sourceTree = "<group>"; };
 		87549C6C1B3443B100CD1868 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
+		9D24C25B1CE119C6008775F1 /* AccessoryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				87549C6C1B3443B100CD1868 /* AccessoryView.swift */,
+				9D24C25B1CE119C6008775F1 /* AccessoryListView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				TargetAttributes = {
 					87549C3E1B34067200CD1868 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = LPZ9E7CD7F;
 					};
 				};
 			};
@@ -177,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87549C651B3412F300CD1868 /* Accessory.swift in Sources */,
+				9D24C25C1CE119C6008775F1 /* AccessoryListView.swift in Sources */,
 				87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */,
 				87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */,
 				87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */,
@@ -276,10 +281,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.seasonizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -288,10 +295,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.seasonizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
