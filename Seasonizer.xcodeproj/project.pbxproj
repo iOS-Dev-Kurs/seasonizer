@@ -15,6 +15,7 @@
 		87549C671B34154000CD1868 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87549C661B34154000CD1868 /* Images.xcassets */; };
 		87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */; };
 		87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C6C1B3443B100CD1868 /* AccessoryView.swift */; };
+		A0C737C81CE2485E0018B914 /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C737C71CE2485E0018B914 /* AccessoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		87549C661B34154000CD1868 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87549C681B3415FA00CD1868 /* AccessoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryListViewController.swift; sourceTree = "<group>"; };
 		87549C6C1B3443B100CD1868 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
+		A0C737C71CE2485E0018B914 /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				87549C6C1B3443B100CD1868 /* AccessoryView.swift */,
+				A0C737C71CE2485E0018B914 /* AccessoryCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */,
 				87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */,
 				87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */,
+				A0C737C81CE2485E0018B914 /* AccessoryCell.swift in Sources */,
 				87549C451B34067200CD1868 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

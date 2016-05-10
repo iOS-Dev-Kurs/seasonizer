@@ -68,13 +68,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qSh-KO-GZF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qSh-KO-GZF" customClass="AccessoryCell" customModule="Seasonizer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qSh-KO-GZF" id="P1E-Cc-qOe">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-O7-dxq">
+                                            <rect key="frame" x="16" y="8" width="51" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accessoryName" destination="9Ga-O7-dxq" id="C6l-92-fLu"/>
+                                    <outlet property="accessoryView" destination="a8W-KC-GDQ" id="maV-0h-z9p"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -84,11 +96,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Accessories" id="dJ8-z8-RTX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="wme-qt-F45"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="wme-qt-F45">
+                            <connections>
+                                <segue destination="s6L-IB-Qlb" kind="unwind" unwindAction="unwindToCanvas:" id="5lH-N9-MiS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zal-U4-bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s6L-IB-Qlb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2632" y="141"/>
         </scene>
