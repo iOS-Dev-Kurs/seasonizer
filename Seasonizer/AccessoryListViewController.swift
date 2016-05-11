@@ -45,6 +45,7 @@ extension AccessoryListViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("AccessoryCell", forIndexPath: indexPath) as! AccessoryCell
         let currentCell = accessories![indexPath.row]
         cell.Name(currentCell.title)
+        cell.imageView?.image = currentCell.image
         return cell
     }
 }

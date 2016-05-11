@@ -27,19 +27,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem title="Accessory" style="done" id="CFB-wG-j2N">
+                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="YdR-ia-N5Z" kind="presentation" id="Bnl-nD-vlO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem systemItem="trash" id="4a5-y9-e1S">
+                            <inset key="imageInsets" minX="500" minY="-3" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <action selector="trashButtonPressed:" destination="BYZ-38-t0r" id="sfR-wW-RWi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="23" systemItem="camera" id="kE0-DH-dcl">
+                            <inset key="imageInsets" minX="120" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="WcU-Jy-SN1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Accessory" style="done" id="CFB-wG-j2N">
-                            <connections>
-                                <segue destination="YdR-ia-N5Z" kind="presentation" id="Bnl-nD-vlO"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -76,7 +79,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-O7-dxq">
-                                            <rect key="frame" x="16" y="8" width="51" height="27"/>
+                                            <rect key="frame" x="267" y="8" width="133" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -85,7 +88,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="accessoryName" destination="9Ga-O7-dxq" id="C6l-92-fLu"/>
-                                    <outlet property="accessoryView" destination="a8W-KC-GDQ" id="maV-0h-z9p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

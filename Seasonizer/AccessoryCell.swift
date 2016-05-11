@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class AccessoryCell: UITableViewCell {
+class AccessoryCell: UITableViewCell{
     
+
     @IBOutlet weak var accessoryName: UILabel!
     
     func Name(name: String){
