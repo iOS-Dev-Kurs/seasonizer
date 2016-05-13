@@ -126,8 +126,10 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
         case "AccessoryView":
             guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {break}
             accessoryListViewController.accessories = allAccessories
+            print(accessoryListViewController.accessories)
             
         default:
+            print("break")
             break
         }
     }
@@ -143,8 +145,9 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
     @IBAction func unwindToCanvas (segue: UIStoryboardSegue) {
         switch segue.identifier! {
-        case "cellExitToCanvas":
+        case "selectedAccessory":
             print("cellExitToCanvas fired")
+            
         case "buttonExitToCanvas":
             print("buttonExitToCanvas fired")
         default:
