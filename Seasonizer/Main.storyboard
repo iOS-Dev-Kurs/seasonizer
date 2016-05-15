@@ -49,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accessoryOverlayView" destination="HZb-V9-xRe" id="CWU-zH-Le6"/>
                         <outlet property="photoImageView" destination="HZb-V9-xRe" id="FUU-Ro-YJa"/>
                     </connections>
                 </viewController>
@@ -91,7 +92,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4L3-zo-L4f" kind="unwind" identifier="buttonExitToCanvas" unwindAction="unwindToCanvas:" id="Vci-Bz-G18"/>
+                                    <segue destination="4L3-zo-L4f" kind="unwind" identifier="selectedAccessory" unwindAction="unwindToCanvas:" id="VXX-od-U1O"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,7 +105,7 @@
                     <navigationItem key="navigationItem" id="QbZ-xo-0FX">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="opM-Ue-JJ7">
                             <connections>
-                                <segue destination="4L3-zo-L4f" kind="unwind" identifier="selectedAccessory" unwindAction="unwindToCanvas:" id="0By-2Z-pek"/>
+                                <segue destination="4L3-zo-L4f" kind="unwind" identifier="ExitFromButton" unwindAction="unwindToCanvas:" id="0By-2Z-pek"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

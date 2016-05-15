@@ -71,6 +71,10 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
         UIGraphicsEndImageContext()
         return renderedPicture
     }
+    
+    
+// Added
+    private var selectedAccessory : Accessory?
 
     
     // MARK: User Interaction
@@ -129,7 +133,6 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
             print(accessoryListViewController.accessories)
             
         default:
-            print("break")
             break
         }
     }
@@ -146,14 +149,20 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func unwindToCanvas (segue: UIStoryboardSegue) {
         switch segue.identifier! {
         case "selectedAccessory":
-            print("cellExitToCanvas fired")
-            
-        case "buttonExitToCanvas":
+            guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
+                selectedAccessory = accessoryListViewController.selectedAccessory else {
+                    break
+            }
+            let accessoryView = AccessoryView(accessory: selectedAccessory)
+            accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+
+            addAccessoryView(accessoryView)
+        
+        case "ExitFromButton":
             print("buttonExitToCanvas fired")
         default:
             break
         }
-        print("AccessView canceled")
     }
     
     
