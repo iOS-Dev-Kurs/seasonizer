@@ -120,6 +120,8 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     
     // TODO: Implement `prepareForSegue(_:sender:)` to pass `allAccessories` on to `AccessoryListViewController`.
+    
+    
     /*
      HINT: The `AccessoryListViewController` should be embedded in a `UINavigationController`:
      
@@ -130,7 +132,9 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
-    
+    @IBAction func unwindToCanvas(segue: UIStoryboardSegue){
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     // TODO: For the "selectedAccessory" segue, obtain the selected accessory and add it to the canvas.
     /*
      HINTS:
