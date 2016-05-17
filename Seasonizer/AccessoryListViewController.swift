@@ -20,10 +20,13 @@ class AccessoryListViewController: UITableViewController {
     // MARK: User Interaction
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {
+        if segue.identifier == "AccessoryView" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {
             return
+            }
+            selectedAccessory = accessories![indexPath.row]
         }
-        selectedAccessory = accessories![indexPath.row]
+        
     }
 
 }
