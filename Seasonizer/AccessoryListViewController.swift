@@ -20,6 +20,16 @@ class AccessoryListViewController: UITableViewController {
     // MARK: User Interaction
     
     // TODO: Implement `prepareForSegue(_:sender:)` to set `selectedAccessory` when the "selectedAccessory" Segue is performed.
+    
+    private var indexOfSelectedAccessory = 0
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selectedAccessory" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return }
+            selectedAccessory = accessories![indexPath.row]
+        }
+    }
+    
     /*
      HINT: Obtain the selected index path with:
      
@@ -35,3 +45,25 @@ class AccessoryListViewController: UITableViewController {
 // MARK: - Table View Data Source
 
 // TODO: Implement the `UITableViewDataSource` protocol.
+extension AccessoryListViewController {
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        indexOfSelectedAccessory = indexPath.row
+//    }
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (accessories?.count)!
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AccessoryCell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.imageView!.image = accessories![indexPath.row].image
+        cell.textLabel!.text = accessories![indexPath.row].title
+        return cell
+    }
+}
