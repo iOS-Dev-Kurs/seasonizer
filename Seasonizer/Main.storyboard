@@ -18,10 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-V9-xRe">
-                                <rect key="frame" x="0.0" y="64" width="600" height="482"/>
+                                <rect key="frame" x="0.0" y="59" width="600" height="497"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTl-p8-0ty">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XTl-p8-0ty" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="FeR-sw-cCl"/>
+                            <constraint firstItem="XTl-p8-0ty" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mg9-p1-9IP"/>
+                            <constraint firstItem="XTl-p8-0ty" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g89-0n-kio"/>
+                            <constraint firstAttribute="trailing" secondItem="XTl-p8-0ty" secondAttribute="trailing" id="nmP-5A-tKC"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="trash" id="rh7-fO-94o">
@@ -50,7 +60,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accessoryOverlayView" destination="HZb-V9-xRe" id="CWU-zH-Le6"/>
+                        <outlet property="accessoryOverlayView" destination="XTl-p8-0ty" id="JSh-q1-yuB"/>
                         <outlet property="photoImageView" destination="HZb-V9-xRe" id="FUU-Ro-YJa"/>
                     </connections>
                 </viewController>
@@ -58,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="1054" y="136"/>
         </scene>
-        <!--Accessory List View Controller-->
+        <!--Accessories-->
         <scene sceneID="lbw-2H-ngA">
             <objects>
                 <tableViewController id="PeH-ce-wdS" customClass="AccessoryListViewController" customModule="Seasonizer" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,18 +76,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="5wL-w8-6Gj">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Accessories" id="gj2-dr-QaL">
-                                    <barButtonItem key="backBarButtonItem" title="Cancel" id="UEP-8w-vdc"/>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AccessoryCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessoryCell" textLabel="wQD-bB-oQW" style="IBUITableViewCellStyleDefault" id="7Qo-xs-X2Z">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Qo-xs-X2Z" id="cTI-Pb-dZn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -103,7 +104,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="QbZ-xo-0FX">
+                    <navigationItem key="navigationItem" title="Accessories" id="QbZ-xo-0FX">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="opM-Ue-JJ7">
                             <connections>
                                 <segue destination="4L3-zo-L4f" kind="unwind" identifier="ExitFromButton" unwindAction="unwindToCanvas:" id="0By-2Z-pek"/>
