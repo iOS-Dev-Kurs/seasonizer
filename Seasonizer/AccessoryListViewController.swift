@@ -19,8 +19,7 @@ class AccessoryListViewController: UITableViewController {
     
     // MARK: User Interaction
     
-    // TODO: Implement `prepareForSegue(_:sender:)` to set `selectedAccessory` when the "selectedAccessory" Segue is performed.
-    // HINT: Obtain the selected index path with:
+ 
  
     //
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int{
@@ -37,6 +36,8 @@ class AccessoryListViewController: UITableViewController {
         return cell
     }
     // 3
+    // TODO: Implement `prepareForSegue(_:sender:)` to set `selectedAccessory` when the "selectedAccessory" Segue is performed.
+    // HINT: Obtain the selected index path with:
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         //
         guard let indexPath = tableView.indexPathForSelectedRow else {
