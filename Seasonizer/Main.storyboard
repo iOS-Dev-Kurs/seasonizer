@@ -15,17 +15,20 @@
                     <toolbarItems>
                         <barButtonItem systemItem="trash" id="UGS-a5-QZC"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="PNv-Lk-jmc"/>
-                        <barButtonItem style="plain" systemItem="camera" id="C03-xJ-485" customClass="UIBarButtonItemSystemItemCamera"/>
+                        <barButtonItem style="plain" systemItem="camera" id="C03-xJ-485"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="KFn-7B-Ycw"/>
                         <barButtonItem systemItem="add" id="MCP-VG-csn">
                             <connections>
-                                <segue destination="VXu-Ca-aOL" kind="show" id="wHD-N4-5dj"/>
+                                <segue destination="l0j-Jk-Wi4" kind="presentation" identifier="showAccessories" id="wHD-N4-5dj"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Seasonizer" id="6dS-Kq-rKs">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="Lv5-69-wgh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="photoImageView" destination="sOE-Yd-IUc" id="UNF-Oj-uKU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,8 +65,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototypecell" textLabel="VKb-Gz-efo" style="IBUITableViewCellStyleDefault" id="I6C-rf-Ab7">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accessoryCell" textLabel="VKb-Gz-efo" style="IBUITableViewCellStyleDefault" id="I6C-rf-Ab7">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I6C-rf-Ab7" id="u4K-gW-jXs">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -79,7 +82,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="" id="hNd-G7-Uvq"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="selectedAccessory" id="PRm-I7-ALH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,14 +92,33 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JWg-Ji-58G"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAa-Sb-wIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="902"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qXz-DV-fXM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0j-Jk-Wi4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dIR-QG-Q5S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VXu-Ca-aOL" kind="relationship" relationship="rootViewController" id="Eqq-16-MVh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4A9-cZ-o6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="279" y="902"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hNd-G7-Uvq"/>
+        <segue reference="PRm-I7-ALH"/>
     </inferredMetricsTieBreakers>
 </document>

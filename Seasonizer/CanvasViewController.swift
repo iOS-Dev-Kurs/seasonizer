@@ -125,10 +125,15 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         //
-        guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {
-            return
+        switch segue.identifier! {
+            case "showAccessories":
+                guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {
+                    break
+                }
+        accessoryListViewController.accessories = allAccessories
+            default:
+                break
         }
-        accessoryListViewController.accessories = self.allAccessories
     }
 
         //
@@ -137,27 +142,31 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
     @IBAction func unwindToCanvas(segue: UIStoryboardSegue){
-        
-     //no implementation
+        switch segue.identifier! {
+                case "selectedAccessory":
+                    guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,selectedAccessory=accessoryListViewController.selectedAccessory else {
+                        break
+                    }
+                    //- Create an `AccessoryView` from the `selectedAccessory` and set its initial position:
+                    let accessoryView = AccessoryView(accessory: selectedAccessory)
+                    accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+                    //- Finally, call the `addAccessoryView(_:)` Method implemented above:
+                    self.addAccessoryView(accessoryView)
+                default:
+                    break
+        }
     }
+
 
     
     // TODO: For the "selectedAccessory" segue, obtain the selected accessory and add it to the canvas.
     
     // HINTS:
  // - The `AccessoryListViewController` is the segue's `sourceViewController`:
-    func selectedAccessorySegue(segue: UIStoryboardSegue, sender: AccessoryListViewController?){
-        guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
-            selectedAccessory = accessoryListViewController.selectedAccessory else {
-                return
-        }
+
  //- Create an `AccessoryView` from the `selectedAccessory` and set its initial position:
-        let accessoryView = AccessoryView(accessory: selectedAccessory)
-        accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+
  //- Finally, call the `addAccessoryView(_:)` Method implemented above:
-        self.addAccessoryView(accessoryView)
-    
-    }
 }
 
 

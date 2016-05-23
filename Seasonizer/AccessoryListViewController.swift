@@ -40,15 +40,17 @@ class AccessoryListViewController: UITableViewController {
     // HINT: Obtain the selected index path with:
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         //
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            return
+        switch segue.identifier! {
+                case "selectedAccessory":
+                    guard let indexPath = tableView.indexPathForSelectedRow else {
+                        return
+                }
+                selectedAccessory = accessories![indexPath.row]
+                default:
+                    break
         }
-        selectedAccessory = accessories![indexPath.row]
         //
     }
-    
-    
-
 }
 
 
