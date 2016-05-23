@@ -120,7 +120,7 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func prepareForSegue(segue: UIStoryboardSegue,sender: AnyObject?){
         switch segue.identifier! {
-        case "AccessoryView":
+        case "selectAccessory":
             guard let AccessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {
                 return
             }
@@ -134,9 +134,9 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func unwindToCanvas(segue:UIStoryboardSegue){
         switch segue.identifier! {
-        case "selectAccessory": break
+        case "Exit": break
            
-        case "Exit":
+        case "selectAccessory":
             guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController,
                 selectedAccessory = accessoryListViewController.selectedAccessory else {return}
             let accessoryView = AccessoryView(accessory: selectedAccessory)

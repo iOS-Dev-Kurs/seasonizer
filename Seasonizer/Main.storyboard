@@ -30,7 +30,7 @@
                         <barButtonItem title="Accessory" style="done" id="CFB-wG-j2N">
                             <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="YdR-ia-N5Z" kind="presentation" identifier="AccessoryView" id="Bnl-nD-vlO"/>
+                                <segue destination="YdR-ia-N5Z" kind="presentation" identifier="selectAccessory" id="Bnl-nD-vlO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem systemItem="trash" id="4a5-y9-e1S">
@@ -88,7 +88,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="accessoryName" destination="9Ga-O7-dxq" id="C6l-92-fLu"/>
-                                    <segue destination="s6L-IB-Qlb" kind="unwind" identifier="Exit" unwindAction="unwindToCanvas:" id="CYM-bc-BCO"/>
+                                    <segue destination="s6L-IB-Qlb" kind="unwind" identifier="selectAccessory" unwindAction="unwindToCanvas:" id="CYM-bc-BCO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,7 +101,7 @@
                     <navigationItem key="navigationItem" title="Accessories" id="dJ8-z8-RTX">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="wme-qt-F45">
                             <connections>
-                                <segue destination="s6L-IB-Qlb" kind="unwind" identifier="selectAccessory" unwindAction="unwindToCanvas:" id="5lH-N9-MiS"/>
+                                <segue destination="s6L-IB-Qlb" kind="unwind" identifier="Exit" unwindAction="unwindToCanvas:" id="5lH-N9-MiS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
