@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A6u-BR-TcU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A6u-BR-TcU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -15,14 +15,119 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-E9-Ilf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EjX-E9-Ilf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2Me-5n-NNW"/>
+                            <constraint firstItem="EjX-E9-Ilf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="a90-Ze-BSr"/>
+                            <constraint firstAttribute="trailing" secondItem="EjX-E9-Ilf" secondAttribute="trailing" id="mib-Tl-qXM"/>
+                            <constraint firstItem="EjX-E9-Ilf" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="xtJ-4o-FBJ"/>
+                        </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Seasonizer" id="6dS-Kq-rKs"/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="29b-di-9va">
+                            <connections>
+                                <action selector="trashButtonPressed:" destination="BYZ-38-t0r" id="OCk-NH-gyj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="RZb-fv-TJa"/>
+                        <barButtonItem systemItem="camera" id="mzU-1C-aTV">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="xZh-HZ-k2L"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="flexibleSpace" id="4i4-G5-Kyi"/>
+                        <barButtonItem systemItem="add" id="NdM-dD-ElC">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="T6x-XJ-B8N"/>
+                                <segue destination="xnU-Yv-nRN" kind="show" identifier="showAccessories" id="ZHb-ey-KAe"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Seasonizer" id="6dS-Kq-rKs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="bus-9M-WXY">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="3BD-et-827"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accessoryOverlayView" destination="8bC-Xf-vdC" id="HMN-ub-KOU"/>
+                        <outlet property="photoImageView" destination="EjX-E9-Ilf" id="49L-2c-jPP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="136"/>
+            <point key="canvasLocation" x="976" y="136"/>
+        </scene>
+        <!--Accessories-->
+        <scene sceneID="vnf-nH-KYb">
+            <objects>
+                <tableViewController id="brK-kD-ngz" customClass="AccessoryListViewController" customModule="Seasonizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="T8b-Nt-8Ma">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessoryCell" textLabel="Oci-VT-fPd" style="IBUITableViewCellStyleDefault" id="Apd-FM-OHT" customClass="AccessoryCell" customModule="Seasonizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Apd-FM-OHT" id="6aO-Cf-TLu">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oci-VT-fPd">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="PtA-IW-obw" kind="unwind" identifier="selectedAccessory" unwindAction="unwindToCanvas:" id="gsn-pU-eCE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="brK-kD-ngz" id="ZR8-DG-LLh"/>
+                            <outlet property="delegate" destination="brK-kD-ngz" id="SHs-yi-Uig"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Accessories" id="Vj3-fK-bib">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WAB-JK-QQU">
+                            <connections>
+                                <segue destination="PtA-IW-obw" kind="unwind" identifier="unwind" unwindAction="unwindToCanvas:" id="2ol-HG-2VY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2YM-pY-jSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PtA-IW-obw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2644" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cY7-y2-fPo">
+            <objects>
+                <navigationController id="xnU-Yv-nRN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mdS-0Y-q5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="brK-kD-ngz" kind="relationship" relationship="rootViewController" id="0fs-o1-ENr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rx3-0S-OPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WSz-3O-Obv">

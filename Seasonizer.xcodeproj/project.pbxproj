@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		774D19541CF247EB00D29A5C /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774D19531CF247EB00D29A5C /* AccessoryCell.swift */; };
 		871723B01CDE1A6000B88961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871723AF1CDE1A6000B88961 /* Main.storyboard */; };
 		872F7D391CDE044700505989 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872F7D381CDE044700505989 /* Launch Screen.storyboard */; };
 		87549C451B34067200CD1868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87549C441B34067200CD1868 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		774D19531CF247EB00D29A5C /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
 		871723AF1CDE1A6000B88961 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		872F7D381CDE044700505989 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		87549C3F1B34067200CD1868 /* Seasonizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seasonizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				87549C6C1B3443B100CD1868 /* AccessoryView.swift */,
+				774D19531CF247EB00D29A5C /* AccessoryCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				TargetAttributes = {
 					87549C3E1B34067200CD1868 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5NV62CF7F7;
 					};
 				};
 			};
@@ -180,6 +184,7 @@
 				87549C6D1B3443B100CD1868 /* AccessoryView.swift in Sources */,
 				87549C691B3415FA00CD1868 /* AccessoryListViewController.swift in Sources */,
 				87549C471B34067200CD1868 /* CanvasViewController.swift in Sources */,
+				774D19541CF247EB00D29A5C /* AccessoryCell.swift in Sources */,
 				87549C451B34067200CD1868 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,10 +281,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.seasonizer";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.ios-dev-kurs.seasonizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -288,10 +295,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Seasonizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.seasonizer";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-hd.ios-dev-kurs.seasonizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
