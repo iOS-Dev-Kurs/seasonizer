@@ -71,7 +71,9 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
         UIGraphicsEndImageContext()
         return renderedPicture
     }
-
+    
+    
+    private var selectedAccessory : Accessory?
     
     // MARK: User Interaction
     
@@ -127,8 +129,39 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
             return
          }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+        case "AccessoryView":
+            guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {break}
+                accessoryListViewController.accessories = allAccessories
+                print(accessoryListViewController.accessories)
+                    
+        default:
+            break
+        }
+    }
 
     // TODO: Implement an `@IBAction func unwindToCanvas(segue: UIStoryboardSegue)` Unwing Segue that the `AccessoryListViewController` can exit to.
+    
+    @IBAction func unwindToCanvas (segue: UIStoryboardSegue) {
+        switch segue.identifier! {
+        case "selectedAccessory":
+                guard let accessoryListViewController = segue.sourceViewController as? AccessoryListViewController, selectedAccessory = accessoryListViewController.selectedAccessory else {
+                        break
+                }
+                let accessoryView = AccessoryView(accessory: selectedAccessory)
+                accessoryView.center = accessoryOverlayView.convertPoint(accessoryOverlayView.center, fromView: accessoryOverlayView.superview)
+                
+                addAccessoryView(accessoryView)
+                    
+            case "ExitFromButton":
+                print("buttonExitToCanvas fired")
+            default:
+                break
+            }
+    }
+    
     
     // TODO: For the "selectedAccessory" segue, obtain the selected accessory and add it to the canvas.
     /*
