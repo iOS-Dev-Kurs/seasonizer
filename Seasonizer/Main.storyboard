@@ -12,20 +12,18 @@
                         <viewControllerLayoutGuide type="top" id="j11-oF-3d1"/>
                         <viewControllerLayoutGuide type="bottom" id="vFI-5U-Dja"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rZX-pI-YsZ">
+                    <stackView key="view" opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" id="yim-oF-JRC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-CZ-Wij">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZeZ-l4-euA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7aT-FG-aMf">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9C-MA-pbB" customClass="AccessoryView" customModule="Seasonizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                    </stackView>
                     <toolbarItems>
                         <barButtonItem systemItem="trash" id="UGS-a5-QZC">
                             <connections>
@@ -41,8 +39,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="KFn-7B-Ycw"/>
                         <barButtonItem systemItem="add" id="MCP-VG-csn">
                             <connections>
-                                <action selector="actionButtonPressed:" destination="BYZ-38-t0r" id="QYw-hz-K4b"/>
-                                <segue destination="l0j-Jk-Wi4" kind="presentation" identifier="showAccessories" id="wHD-N4-5dj"/>
+                                <segue destination="l0j-Jk-Wi4" kind="show" identifier="showAccessories" id="VlK-uq-LI1"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -50,8 +47,8 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="Lv5-69-wgh"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="accessoryOverlayView" destination="7aT-FG-aMf" id="e7l-Bk-3vQ"/>
-                        <outlet property="photoImageView" destination="z9P-CZ-Wij" id="0EX-oh-Z4u"/>
+                        <outlet property="accessoryOverlayView" destination="c9C-MA-pbB" id="f96-wV-2yF"/>
+                        <outlet property="photoImageView" destination="ZeZ-l4-euA" id="m2F-ri-Tva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,8 +102,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="accessoryCell"/>
                                 <connections>
-                                    <segue destination="q2O-zk-cbG" kind="unwind" unwindAction="unwindToCanvas:" id="cFk-M3-JuT"/>
+                                    <segue destination="q2O-zk-cbG" kind="unwind" identifier="selectedAccessory" unwindAction="unwindToCanvas:" id="bfC-h3-DHg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -119,7 +117,7 @@
                     <navigationItem key="navigationItem" id="JWg-Ji-58G">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="fiD-qb-F4s">
                             <connections>
-                                <segue destination="q2O-zk-cbG" kind="unwind" unwindAction="unwindToCanvas:" id="u98-WT-B9h"/>
+                                <segue destination="q2O-zk-cbG" kind="unwind" unwindAction="unwindToCanvas:" id="WxM-WN-Nce"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -152,6 +150,10 @@
         <scene sceneID="eFi-XO-sls">
             <objects>
                 <viewController id="khW-Bz-6XS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WbX-nR-Che"/>
+                        <viewControllerLayoutGuide type="bottom" id="epb-rl-xdw"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kug-8H-3uk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
