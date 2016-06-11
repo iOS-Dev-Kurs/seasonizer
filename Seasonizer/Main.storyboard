@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Seasonizer-->
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-V9-xRe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-V9-xRe">
                                 <rect key="frame" x="0.0" y="59" width="600" height="497"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTl-p8-0ty">
@@ -27,10 +28,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XTl-p8-0ty" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="FeR-sw-cCl"/>
-                            <constraint firstItem="XTl-p8-0ty" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mg9-p1-9IP"/>
-                            <constraint firstItem="XTl-p8-0ty" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g89-0n-kio"/>
-                            <constraint firstAttribute="trailing" secondItem="XTl-p8-0ty" secondAttribute="trailing" id="nmP-5A-tKC"/>
+                            <constraint firstItem="HZb-V9-xRe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0JT-bv-991"/>
+                            <constraint firstItem="XTl-p8-0ty" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2M9-Qj-jZq"/>
+                            <constraint firstItem="HZb-V9-xRe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="59" id="7I1-EC-Pu1"/>
+                            <constraint firstAttribute="trailing" secondItem="HZb-V9-xRe" secondAttribute="trailing" id="EZ6-iK-XaD"/>
+                            <constraint firstItem="HZb-V9-xRe" firstAttribute="trailing" secondItem="XTl-p8-0ty" secondAttribute="trailing" id="JJW-Aq-aC9"/>
+                            <constraint firstItem="HZb-V9-xRe" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Yc7-1v-YIe"/>
+                            <constraint firstItem="HZb-V9-xRe" firstAttribute="leading" secondItem="XTl-p8-0ty" secondAttribute="leading" id="jsh-e1-gID"/>
+                            <constraint firstItem="XTl-p8-0ty" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="mOV-Jk-NhY"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -88,7 +93,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
