@@ -19,16 +19,16 @@ class AccessoryView: UIImageView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        if let imageData = aDecoder.decodeObjectForKey("image") as? NSData {
+        if let imageData = aDecoder.decodeObject(forKey: "image") as? Data {
             self.image = UIImage(data: imageData)
         }
     }
 
-    override func encodeWithCoder(aCoder: NSCoder) {
+    override func encode(with aCoder: NSCoder) {
         if let image = self.image {
-            aCoder.encodeObject(UIImagePNGRepresentation(image), forKey: "image")
+            aCoder.encode(UIImagePNGRepresentation(image), forKey: "image")
         }
-        super.encodeWithCoder(aCoder)
+        super.encode(with: aCoder)
     }
 
 }

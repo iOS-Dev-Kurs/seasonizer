@@ -29,11 +29,11 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
     // MARK: Accessory Handling
     
     /// Displays the accessory view on the canvas and enables user interaction with it.
-    private func addAccessoryView(accessoryView: AccessoryView) {
+    fileprivate func addAccessoryView(_ accessoryView: AccessoryView) {
         self.accessoryOverlayView.addSubview(accessoryView)
         
         // recognize gestures on accessory view:
-        accessoryView.userInteractionEnabled = true
+        accessoryView.isUserInteractionEnabled = true
         // move
         let panGR = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
         panGR.delegate = self
@@ -54,76 +54,76 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
 
     
     /// The accessory views currently visible on the canvas.
-    private var accessoryViews: [AccessoryView] {
+    fileprivate var accessoryViews: [AccessoryView] {
         return accessoryOverlayView.subviews.flatMap({ $0 as? AccessoryView })
     }
 
     /// The temporary selected accessory view, e.g. from a long press gesture
-    private var selectedAccessoryView: UIView?
+    fileprivate var selectedAccessoryView: UIView?
 
     
     // MARK: Rendered Picture
     
-    private var renderedPicture: UIImage {
+    fileprivate var renderedPicture: UIImage {
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
-        self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+        self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         let renderedPicture = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return renderedPicture
+        return renderedPicture!
     }
 
     
     // MARK: User Interaction
     
-    @IBAction func cameraButtonPressed(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            alertController.addAction(UIAlertAction(title: "Kamera", style: .Default, handler: { action in
-                self.presentImagePickerWithSourceType(.Camera)
+    @IBAction func cameraButtonPressed(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(UIAlertAction(title: "Kamera", style: .default, handler: { action in
+                self.presentImagePickerWithSourceType(.camera)
             }))
         }
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            alertController.addAction(UIAlertAction(title: "Foto auswählen", style: .Default, handler: { action in
-                self.presentImagePickerWithSourceType(.PhotoLibrary)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(UIAlertAction(title: "Foto auswählen", style: .default, handler: { action in
+                self.presentImagePickerWithSourceType(.photoLibrary)
             }))
         }
-        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    private func presentImagePickerWithSourceType(sourceType: UIImagePickerControllerSourceType) {
+    fileprivate func presentImagePickerWithSourceType(_ sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
         imagePicker.delegate = self
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func trashButtonPressed(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        alertController.addAction(UIAlertAction(title: "Bild zurücksetzen", style: .Destructive, handler: { action in
+    @IBAction func trashButtonPressed(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Bild zurücksetzen", style: .destructive, handler: { action in
             self.photoImageView.image = nil
             for accessoryView in self.accessoryViews {
                 accessoryView.removeFromSuperview()
             }
         }))
-        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func actionButtonPressed(sender: AnyObject) {
+    @IBAction func actionButtonPressed(_ sender: AnyObject) {
         // obtain rendered picture
         let renderedPicture = self.renderedPicture
         // present share sheet
         let activityViewController = UIActivityViewController(activityItems: [ renderedPicture ], applicationActivities: nil)
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     
-    // TODO: Implement `prepareForSegue(_:sender:)` to pass `allAccessories` on to `AccessoryListViewController`.
+    // TODO: Implement `prepare(for:sender:)` to pass `allAccessories` on to `AccessoryListViewController`.
     /*
      HINT: The `AccessoryListViewController` should be embedded in a `UINavigationController`:
      
-         guard let accessoryListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? AccessoryListViewController else {
+         guard let accessoryListViewController = (segue.destination as? UINavigationController)?.topViewController as? AccessoryListViewController else {
             return
          }
     */
@@ -159,24 +159,24 @@ class CanvasViewController: UIViewController, UINavigationControllerDelegate, UI
 
 extension CanvasViewController {
     
-    override func encodeRestorableStateWithCoder(coder: NSCoder) {
+    override func encodeRestorableState(with coder: NSCoder) {
         if let photo = photoImageView.image {
             let imageData = UIImageJPEGRepresentation(photo, 1)
-            coder.encodeObject(imageData, forKey: "photo")
+            coder.encode(imageData, forKey: "photo")
         }
-        coder.encodeObject(NSKeyedArchiver.archivedDataWithRootObject(accessoryViews), forKey: "accessoryViews")
-        super.encodeRestorableStateWithCoder(coder)
+        coder.encode(NSKeyedArchiver.archivedData(withRootObject: accessoryViews), forKey: "accessoryViews")
+        super.encodeRestorableState(with: coder)
     }
     
-    override func decodeRestorableStateWithCoder(coder: NSCoder) {
-        if let photoData = coder.decodeObjectForKey("photo") as? NSData {
+    override func decodeRestorableState(with coder: NSCoder) {
+        if let photoData = coder.decodeObject(forKey: "photo") as? Data {
             photoImageView.image = UIImage(data: photoData)
         }
-        if let accessoryViewsData = coder.decodeObjectForKey("accessoryViews") as? NSData {
-            let accessoryViews = NSKeyedUnarchiver.unarchiveObjectWithData(accessoryViewsData) as! [AccessoryView]
+        if let accessoryViewsData = coder.decodeObject(forKey: "accessoryViews") as? Data {
+            let accessoryViews = NSKeyedUnarchiver.unarchiveObject(with: accessoryViewsData) as! [AccessoryView]
             accessoryViews.forEach(addAccessoryView)
         }
-        super.decodeRestorableStateWithCoder(coder)
+        super.decodeRestorableState(with: coder)
     }
     
 }
@@ -186,13 +186,13 @@ extension CanvasViewController {
 
 extension CanvasViewController: UIImagePickerControllerDelegate {
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.photoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -202,54 +202,54 @@ extension CanvasViewController: UIImagePickerControllerDelegate {
 
 extension CanvasViewController {
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    func pan(sender: UIPanGestureRecognizer) {
+    func pan(_ sender: UIPanGestureRecognizer) {
         if let accessoryView = sender.view {
-            accessoryView.superview?.bringSubviewToFront(accessoryView)
-            let translation = sender.translationInView(accessoryView.superview!)
+            accessoryView.superview?.bringSubview(toFront: accessoryView)
+            let translation = sender.translation(in: accessoryView.superview!)
             accessoryView.center = CGPoint(x: accessoryView.center.x + translation.x, y: accessoryView.center.y + translation.y)
-            sender.setTranslation(CGPointZero, inView: accessoryView.superview!)
+            sender.setTranslation(CGPoint.zero, in: accessoryView.superview!)
         }
     }
 
-    func pinch(sender: UIPinchGestureRecognizer) {
+    func pinch(_ sender: UIPinchGestureRecognizer) {
         if let accessoryView = sender.view {
-            accessoryView.superview?.bringSubviewToFront(accessoryView)
-            accessoryView.transform = CGAffineTransformScale(accessoryView.transform, sender.scale, sender.scale);
+            accessoryView.superview?.bringSubview(toFront: accessoryView)
+            accessoryView.transform = accessoryView.transform.scaledBy(x: sender.scale, y: sender.scale);
             sender.scale = 1
         }
     }
 
-    func rotate(sender: UIRotationGestureRecognizer) {
+    func rotate(_ sender: UIRotationGestureRecognizer) {
         if let accessoryView = sender.view {
-            accessoryView.superview?.bringSubviewToFront(accessoryView)
-            accessoryView.transform = CGAffineTransformRotate(accessoryView.transform, sender.rotation);
+            accessoryView.superview?.bringSubview(toFront: accessoryView)
+            accessoryView.transform = accessoryView.transform.rotated(by: sender.rotation);
             sender.rotation = 0
         }
     }
 
-    func tap(sender: UILongPressGestureRecognizer) {
-        if sender.state != .Began {
+    func tap(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != .began {
             return
         }
         if let accessoryView = sender.view {
             self.becomeFirstResponder()
-            let menuController = UIMenuController.sharedMenuController()
+            let menuController = UIMenuController.shared
             menuController.menuItems = [ UIMenuItem(title: "Entfernen", action: #selector(removeAccessoryButtonPressed(_:))) ]
-            menuController.setTargetRect(accessoryView.frame, inView: accessoryView.superview!)
+            menuController.setTargetRect(accessoryView.frame, in: accessoryView.superview!)
             menuController.setMenuVisible(true, animated: true)
             self.selectedAccessoryView = accessoryView
         }
     }
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     
-    func removeAccessoryButtonPressed(sender: AnyObject) {
+    func removeAccessoryButtonPressed(_ sender: AnyObject) {
         if let accessoryView = self.selectedAccessoryView {
             accessoryView.removeFromSuperview()
         }
